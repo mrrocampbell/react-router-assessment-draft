@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import Header from "./common/Header";
+import CardList from "./home/CardList";
+import User from "./user/User";
+import Post from "./user/Post";
 
 function App() {
+  /*
+  TODO: There is no need to add a <Router >, it is in index.js.
+
+  The <CardList /> component should be shown when the user is on the index path.
+
+  The <User /> component should be shown when the user is on the following path:
+  /users/:userId
+
+  Display <NotFound /> when appropriate
+*/
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <Routes>
+        <Route path="/" element={<CardList />} />
+        <Route path="/users/:userId/*" element={<User />} />
+        {/* <Route path="/users/:userId/posts" element={<Post />} /> */}
+
+      </Routes>
     </div>
   );
 }
