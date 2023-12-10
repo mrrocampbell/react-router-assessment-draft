@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Header from "./common/Header";
 import CardList from "./home/CardList";
 import User from "./user/User";
-import Post from "./user/Post";
+import NotFound from "./common/NotFound";
 
 function App() {
   /*
@@ -21,8 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<CardList />} />
         <Route path="/users/:userId/*" element={<User />} />
-        {/* <Route path="/users/:userId/posts" element={<Post />} /> */}
-
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
